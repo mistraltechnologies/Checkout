@@ -18,5 +18,17 @@ class CheckoutSpec extends WordSpec {
         }
       }
     }
+
+    "contains an apple" should {
+      "should cost 60 pence" in {
+        assert(new Checkout().checkout(List("apple")) == 60)
+      }
+    }
+
+    "contains an orange" should {
+      "should cost 25 pence" in {
+        assert(new Checkout().checkout(List("orange")) == 25)
+      }
+    }
   }
 }
