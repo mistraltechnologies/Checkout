@@ -45,5 +45,13 @@ class CheckoutSpec extends WordSpec {
       }
     }
 
+    "contains multiple oranges" should {
+      "apply three for two offer" in {
+        assert(new Checkout().checkout(List("orange", "orange")) == 50)
+        assert(new Checkout().checkout(List("orange", "orange", "orange")) == 50)
+        assert(new Checkout().checkout(List("orange", "orange", "orange", "orange")) == 75)
+        assert(new Checkout().checkout(List("orange", "orange", "orange", "orange", "orange", "orange")) == 100)
+      }
+    }
   }
 }
