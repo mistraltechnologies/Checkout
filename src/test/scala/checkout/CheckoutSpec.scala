@@ -55,5 +55,13 @@ class CheckoutSpec extends WordSpec {
         assert(Checkout(List.fill(6)(orange)) == 100)
       }
     }
+
+    "contains mix of apples and oranges" should {
+      "apply both offers" in {
+        val cart = List.fill(6)(List(orange, apple)).flatten
+        val expected = (4 * 25) + (3 * 60)
+        assert(Checkout(cart) == expected)
+      }
+    }
   }
 }
