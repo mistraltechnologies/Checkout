@@ -10,5 +10,13 @@ class CheckoutSpec extends WordSpec {
         assert(new Checkout().checkout(Nil) == 0)
       }
     }
+
+    "contains invalid item" should {
+      "throw exception" in {
+        assertThrows[IllegalArgumentException] {
+          new Checkout().checkout(List("invalidItem"))
+        }
+      }
+    }
   }
 }
