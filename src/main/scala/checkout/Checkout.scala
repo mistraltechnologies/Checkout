@@ -2,10 +2,7 @@ package checkout
 
 class Checkout {
   def checkout(cart: List[String]): Int = {
-    cart match {
-      case head :: _ => priceOfItem(head)
-      case Nil => 0
-    }
+    cart.map(priceOfItem).sum
   }
 
   private def priceOfItem(item: String): Int = item match {
