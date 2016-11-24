@@ -1,7 +1,7 @@
 package checkout
 
-class Checkout {
-  def checkout(cart: List[String]): Int = {
+object Checkout {
+  def apply(cart: List[String]): Int = {
     val subtotal = cart.map(priceOfItem).sum
     val appleOfferDiscount = appleOffer(cart)
     val orangeOfferDiscount = orangeOffer(cart)
