@@ -33,10 +33,17 @@ class CheckoutSpec extends WordSpec {
 
     "contains a mix of items" should {
       "should calculate correct total" in {
-        assert(new Checkout().checkout(List("orange", "orange")) == 50)
-        assert(new Checkout().checkout(List("apple", "apple")) == 120)
-        assert(new Checkout().checkout(List("apple", "apple", "orange", "apple")) == 205)
+        assert(new Checkout().checkout(List("orange", "apple")) == 85)
       }
     }
+
+    "contains multiple apples" should {
+      "apply bogof offer" in {
+        assert(new Checkout().checkout(List("apple", "apple")) == 60)
+        assert(new Checkout().checkout(List("apple", "apple", "apple")) == 120)
+        assert(new Checkout().checkout(List("apple", "apple", "apple", "apple")) == 120)
+      }
+    }
+
   }
 }
